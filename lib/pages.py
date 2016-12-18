@@ -96,7 +96,7 @@ def get_pages(dirpath, mfile, is_verbose):
         return None
     id, ver, title, locations, di, do = mobi_header_fields(mobi_content)
     if (di != 0 or do != 0):
-        print(file_dec + ': dictionary file. Skipping...')
+        print(file_dec + ': dictionary file. Skipping... ', end='')
         return None
     author = find_exth(100, mobi_content)
     asin = find_exth(113, mobi_content)

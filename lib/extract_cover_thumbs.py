@@ -198,8 +198,7 @@ def generate_apnx_files(docs, is_verbose, is_overwrite_apnx, days,
                 if is_verbose:
                     print('! Excluded dictionary:', name)
                 continue
-            mobi_path = os.path.join(root, name)
-            if "attachables" in mobi_path:
+            if '.sdr' in root:
                 continue
             if days is not None:
                 try:
@@ -311,6 +310,8 @@ def extract_cover_thumbs(is_silent, is_overwrite_pdoc_thumbs,
                 if is_verbose:
                     print('! Excluded dictionary:', name)
                 continue
+            if '.sdr' in root:
+                continue
             if days is not None:
                 try:
                     dt = os.path.getctime(os.path.join(root, name))
@@ -331,8 +332,6 @@ def extract_cover_thumbs(is_silent, is_overwrite_pdoc_thumbs,
                     except:
                         print('* %r:' % fide, end=' ')
                 mobi_path = os.path.join(root, name)
-                if "attachables" in mobi_path:
-                    continue
                 if is_kfx:
                     if '_sample' in fide:
                         if is_verbose:
